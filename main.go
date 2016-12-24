@@ -3,12 +3,13 @@ package main
 import (
 	"github.com/bartholdbos/sudoku/gridpkg"
 	"fmt"
+	"os"
 )
 
 func main() {
 	fmt.Println("Reading grid string")
 	
-	grid, err := gridpkg.NewGrid(".4..7...39.215...86...2.41.57...6..9..834.6..3...1..27.19.6...48...319.24...9..8.")
+	grid, err := gridpkg.NewGrid(os.Args[1])
 	if err != nil{
 		panic(err);
 	}
@@ -34,4 +35,6 @@ func main() {
 		grid.PrintGrid()
 		fmt.Println("===============================")
 	}
+
+	fmt.Println("Solved!")
 }
