@@ -25,15 +25,22 @@ func main() {
 			break;
 		}
 		
+		solution := false
 		for _, v := range empty{
 			possibilities := gridpkg.GetPossible(v.GetBlock(), v.GetRow(), v.GetColum())
 				
 			if(len(possibilities) == 1){
 				v.SetNumber(possibilities[0])
+				solution = true
 			}
 		}
-		grid.PrintGrid()
-		fmt.Println("===============================")
+		if !solution {
+			fmt.Println("no new solutions have been found!")
+			break;
+		}else{
+			grid.PrintGrid()
+			fmt.Println("===============================")
+		}
 	}
 
 	fmt.Println("Solved!")
